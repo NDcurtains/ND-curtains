@@ -1,0 +1,26 @@
+{
+  "summary": "First-finish smoke tests for ND Curtains site. Backend consultation endpoints (POST/GET) and frontend hero+quote-form flow all pass. Data persists end-to-end.",
+  "tested_scope": ["backend", "frontend", "integration"],
+  "passed": [
+    "POST /api/consultations with valid body returns 200 + Consultation with generated uuid `id` and ISO `created_at`",
+    "POST /api/consultations with invalid email returns 422 (pydantic EmailStr validation)",
+    "GET /api/consultations returns list sorted by created_at desc",
+    "Home page loads at REACT_APP_BACKEND_URL with hero-section, hero-title, hero-quote-btn, hero-draw-btn visible",
+    "curtain-canvas (WebGL react-three-fiber) mounts successfully",
+    "hero-draw-btn toggles label between 'DRAW THE CURTAINS' and 'CLOSE THE CURTAINS' on click",
+    "All required sections present: about-section, services-section, gallery-section, testimonials-section, quote-section",
+    "Empty submit on quote-form shows sonner error toast 'Please fill in your name, email, phone and service.' and does not POST",
+    "Filling all inputs + selecting service via shadcn Select (service-option-Custom Curtains) + submit shows success toast 'Thank you! We\\'ll be in touch shortly...' and resets the form",
+    "Submitted consultation is retrievable via GET /api/consultations (verified by matching unique name)"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true,
+  "notes": [
+    "Framer-motion delayed opacity animation (~0.75s) on hero CTAs can cause Playwright's default actionability check to time out; used JS click as reliable alternative. UI is fully functional for real users.",
+    "Only warning in console: 'THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.' — non-blocking.",
+    "Email notification intentionally skipped (RESEND_API_KEY not set) — matches problem statement."
+  ]
+}
