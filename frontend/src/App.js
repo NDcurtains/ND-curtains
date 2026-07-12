@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import QuoteForm from "@/components/QuoteForm";
 import Footer from "@/components/Footer";
 
@@ -51,6 +52,7 @@ function App() {
         <Hero />
         <About />
         <Services />
+        <WhyChooseUs />
         <QuoteForm />
       </main>
       <Footer />

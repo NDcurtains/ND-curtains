@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const links = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Why Us", href: "#why-us" },
 ];
 
 const LOGO = "https://customer-assets.emergentagent.com/job_nd-curtains-animate/artifacts/mdg8r6ar_IMG_4895.jpeg";
