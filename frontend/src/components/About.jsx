@@ -2,9 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "500+", label: "Homes Dressed" },
-  { value: "12+", label: "Years Craft" },
   { value: "100%", label: "Custom Made" },
+  { value: "Free", label: "Measure & Quote" },
+  { value: "VIC", label: "Melbourne Based" },
 ];
 
 const About = () => {
@@ -20,7 +20,7 @@ const About = () => {
         >
           <div className="overflow-hidden rounded-sm">
             <img
-              src="https://images.unsplash.com/photo-1667584523543-d1d9cc828a15?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000"
+              src="https://images.unsplash.com/photo-1704040686413-2c607dbd2f06?crop=entropy&cs=srgb&fm=jpg&q=85&w=1000"
               alt="Sheer curtains in a luxury living room"
               data-testid="about-image"
               className="h-[420px] w-full object-cover transition-transform duration-[1.2s] hover:scale-105 lg:h-[560px]"

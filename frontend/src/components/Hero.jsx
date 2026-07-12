@@ -52,7 +52,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2 }}
-          className="font-sans text-xs uppercase tracking-[0.42em] text-gold"
+          className="font-sans text-xs uppercase tracking-[0.42em] text-ink"
           data-testid="hero-overline"
         >
           Melbourne · Officer South, VIC

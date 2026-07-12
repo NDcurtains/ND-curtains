@@ -14,7 +14,7 @@ const services = [
     title: "Sheer Curtains",
     desc: "Soft, light-filtering sheers that add airy elegance and daytime privacy.",
     icon: Wind,
-    img: "https://images.unsplash.com/photo-1754611362309-71297e9f42fd?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+    img: "https://images.unsplash.com/photo-1667584523543-d1d9cc828a15?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
     span: "lg:col-span-5",
   },
   {

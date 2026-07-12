@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 const links = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Reviews", href: "#testimonials" },
 ];
+
+const LOGO = "https://customer-assets.emergentagent.com/job_nd-curtains-animate/artifacts/mdg8r6ar_IMG_4895.jpeg";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -27,14 +27,13 @@ const Navbar = () => {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a
-          href="#home"
-          data-testid="nav-logo"
-          className={`font-serif text-2xl tracking-[0.2em] transition-colors ${
-            scrolled ? "text-ink" : "text-cream"
-          }`}
-        >
-          ND <span className="text-gold">CURTAINS</span>
+        <a href="#home" data-testid="nav-logo" className="flex items-center gap-3">
+          <span className="rounded-md bg-cream p-1.5">
+            <img src={LOGO} alt="ND Curtains" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
+          </span>
+          <span className={`font-serif text-xl tracking-[0.22em] transition-colors ${scrolled ? "text-ink" : "text-cream"}`}>
+            ND <span className="text-gold">CURTAINS</span>
+          </span>
         </a>
 
         <ul className="hidden items-center gap-9 md:flex">
