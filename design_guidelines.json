@@ -1,0 +1,124 @@
+{
+  "theme": "light",
+  "brand": {
+    "name": "ND Curtains",
+    "taglines": [
+      "CURATE. DESIGN. ELEVATE.",
+      "Where luxury meets affordability."
+    ],
+    "location": "Melbourne, Victoria",
+    "contact": {
+      "email": "info@ndcurtains.com.au",
+      "phone": "0487 930 023"
+    }
+  },
+  "typography": {
+    "primary_font": "Cormorant Garamond",
+    "secondary_font": "Manrope",
+    "accent_font": "Pinyon Script",
+    "font_install_instructions": "Add Google Fonts links for 'Cormorant Garamond', 'Manrope', and 'Pinyon Script' in index.html.",
+    "hierarchy": {
+      "h1": "font-serif text-5xl sm:text-6xl+ tracking-tighter leading-none text-charcoal",
+      "h2": "font-serif text-4xl sm:text-5xl tracking-tight leading-tight text-charcoal",
+      "h3": "font-serif text-2xl sm:text-3xl text-charcoal",
+      "accent": "font-['Pinyon_Script'] text-3xl sm:text-4xl text-gold",
+      "body": "font-sans text-base leading-relaxed text-charcoal/80",
+      "overline": "font-sans text-xs uppercase tracking-[0.2em] text-gold/80"
+    }
+  },
+  "colors": {
+    "background": {
+      "light": "#FAF9F6",
+      "dark": "#1A1A1A",
+      "paper": "#F0EBE1"
+    },
+    "text": {
+      "primary": "#1A1A1A",
+      "secondary": "#4A4A4A",
+      "light": "#FAF9F6"
+    },
+    "brand": {
+      "gold": "#C5A059",
+      "champagne": "#E8DCC4",
+      "charcoal": "#222222",
+      "beige": "#D5CABD"
+    }
+  },
+  "layouts": {
+    "spacing": "Use generous padding. p-8 to p-24 for sections. Use margin between logical groups. Tailwind scale: p-4, p-8, p-16, p-24, p-32.",
+    "hero": "Full height (100vh) immersive 3D scene. Content absolute centered. Dark overlay to ensure text contrast. Use absolute positioning with z-index for text over the canvas.",
+    "services_grid": "Bento-style or asymmetrical grid. Mode A: Tetris Grid. grid-cols-1 md:grid-cols-12 gap-8. Span items across 4 or 8 columns. Overlap images with text boxes.",
+    "gallery": "Masonry or horizontal scroll gallery to showcase high-res interior shots.",
+    "form_section": "Two-column layout. Left: minimal quote form. Right: Brand image or contact details. Use custom shadcn inputs with subtle bottom borders (no full boxes) for an editorial feel."
+  },
+  "motion": {
+    "smooth_scroll": "Use Lenis for premium momentum scrolling.",
+    "hero_3d": "react-three-fiber for the 3D curtain scene. Animate vertex shaders or scale to simulate curtains opening on scroll.",
+    "reveal": "Use framer-motion. Text reveals with y-axis transform and opacity. Staggered children for lists/grids. Image parallax on scroll.",
+    "hover": "Image scale up slightly on hover within overflow-hidden container. Button hover states with soft gold glow or background fill."
+  },
+  "visual_enhancers": {
+    "glassmorphism": "Subtle glassmorphism for sticky header (backdrop-blur-xl bg-white/70 with border-white/20).",
+    "borders": "1px solid borders in gold/beige for structural elements. Avoid heavy drop shadows. Use delicate shadows if needed.",
+    "texture": "Add subtle noise texture over solid color sections to prevent flatness."
+  },
+  "components": {
+    "buttons": "Pill-shaped or sharp rectangular buttons. Primary: bg-charcoal text-white hover:bg-gold transition-colors. Secondary: border border-gold text-gold hover:bg-gold hover:text-white.",
+    "inputs": "Shadcn UI customized. Replace standard borders with subtle bottom border or very light full border. No intense focus rings; use a gold outline on focus.",
+    "navigation": "Sticky top, logo centered or left. Minimal links. 'Get Quote' button on right. Glassmorphism background.",
+    "3d_scene": "Create a Canvas component with a plane geometry using the 'flowing silk fabric texture' image as a map. Implement a custom shader material or use Drei's MeshDistortMaterial/MeshWobbleMaterial to animate draping."
+  },
+  "media": {
+    "3d_libraries": [
+      "three",
+      "@react-three/fiber",
+      "@react-three/drei"
+    ],
+    "animation_libraries": [
+      "framer-motion",
+      "@studio-freight/lenis"
+    ],
+    "image_urls": {
+      "logo": "https://customer-assets.emergentagent.com/job_a2983626-860f-4649-992a-8bf11b2851d8/artifacts/5lza0e85_6B9A0C2B-2AF9-44E3-B076-2CAF6663A059.png",
+      "brand_promo": "https://customer-assets.emergentagent.com/job_a2983626-860f-4649-992a-8bf11b2851d8/artifacts/osmpf8ck_6295D5C9-C9DC-49A5-9C70-0C0F172F6D3A.png",
+      "curtain_texture_for_3d": "https://images.unsplash.com/photo-1732869415090-179de017b6d6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwyfHxmbG93aW5nJTIwc2lsayUyMGZhYnJpYyUyMHRleHR1cmV8ZW58MHx8fHwxNzgzODI1MDc1fDA&ixlib=rb-4.1.0&q=85",
+      "services": {
+        "sheer": "https://images.unsplash.com/photo-1754611362309-71297e9f42fd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBzaGVlciUyMGN1cnRhaW5zJTIwbGl2aW5nJTIwcm9vbXxlbnwwfHx8fDE3ODM4MjUwNzR8MA&ixlib=rb-4.1.0&q=85",
+        "blockout": "https://images.unsplash.com/photo-1754611380518-61a923cc47ca?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxiZWRyb29tJTIwYmxhY2tvdXQlMjBjdXJ0YWluc3xlbnwwfHx8fDE3ODM4MjUwNzR8MA&ixlib=rb-4.1.0&q=85",
+        "blinds": "https://images.unsplash.com/photo-1776972334786-ae17d81b4572?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDV8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjB3aW5kb3clMjBibGluZHMlMjBpbnRlcmlvcnxlbnwwfHx8fDE3ODM4MjUwNzR8MA&ixlib=rb-4.1.0&q=85"
+      },
+      "gallery": [
+        "https://images.unsplash.com/photo-1688647063090-36f36f692d95?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBob21lJTIwaW50ZXJpb3IlMjBkZXNpZ258ZW58MHx8fHwxNzgzODI1MDc1fDA&ixlib=rb-4.1.0&q=85",
+        "https://images.unsplash.com/photo-1667584523543-d1d9cc828a15?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBzaGVlciUyMGN1cnRhaW5zJTIwbGl2aW5nJTIwcm9vbXxlbnwwfHx8fDE3ODM4MjUwNzR8MA&ixlib=rb-4.1.0&q=85",
+        "https://images.unsplash.com/photo-1704040686413-2c607dbd2f06?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBob21lJTIwaW50ZXJpb3IlMjBkZXNpZ258ZW58MHx8fHwxNzgzODI1MDc1fDA&ixlib=rb-4.1.0&q=85"
+      ]
+    }
+  },
+  "accessibility": {
+    "contrast": "Ensure text over images has sufficient contrast. Use subtle dark/light overlays on images where text is placed.",
+    "motion": "Respect prefers-reduced-motion for 3D and scroll animations.",
+    "testing": "All interactive elements MUST include a data-testid attribute in kebab-case."
+  },
+  "instructions_to_main_agent": [
+    "Install required dependencies: three, @react-three/fiber, @react-three/drei, framer-motion, @studio-freight/lenis.",
+    "Use react-icons or lucide-react for iconography.",
+    "Set up Tailwind configuration with custom colors (gold, champagne, charcoal, beige) and fonts (sans, serif, script).",
+    "Build an interactive 3D hero component using react-three-fiber. Use a plane with MeshDistortMaterial and the curtain texture to simulate a draping, moving curtain.",
+    "Implement smooth scrolling using Lenis.",
+    "Create a services section with an asymmetrical bento grid layout to showcase Sheer, Blockout, and Blinds.",
+    "Create a photo gallery using CSS columns or framer-motion horizontal scroll.",
+    "Build a 'Quote Request' form connected to a backend or mock endpoint, styled minimally with subtle borders.",
+    "Ensure all buttons, form inputs, and links have data-testid attributes for testing.",
+    "Do NOT use completely transparent backgrounds for the sticky header; apply backdrop-blur-xl and a semi-transparent color."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": {
+    "creativity": "Avoid generic outputs. Use layered design elements with z-index hierarchy.",
+    "transitions": "Add transitions for specific interactive elements. DO NOT apply universal transitions (e.g., transition: all).",
+    "spacing": "Use 2-3x more spacing than feels comfortable.",
+    "alignment": "DO NOT center align the app container in global CSS. Follow natural reading flow.",
+    "icons": "NEVER use emoji characters for icons.",
+    "components": "Prioritize existing Shadcn UI components and customize their styling to fit the luxury brand.",
+    "toasts": "Use Sonner for toasts notifications.",
+    "placeholders": "NEVER use placeholder images; use the provided Unsplash URLs."
+  }
+}
