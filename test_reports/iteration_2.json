@@ -1,0 +1,35 @@
+{
+  "summary": "Full backend + frontend regression pass for ND Curtains after removal of Gallery/Testimonials, addition of WhyChooseUs, new logo, Resend email enable, and GA tag. 6/6 pytest backend tests pass. All frontend testids, sections, Why-Us cards/CTA, GA tag, empty-submit error toast, and full happy-path form submission (with backend persistence) all pass.",
+  "tested_scope": ["backend", "frontend", "integration"],
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "passed": [
+    "GET /api/ returns {'message':'ND Curtains API'}",
+    "POST /api/consultations valid payload -> 200, returns uuid id + ISO created_at",
+    "POST /api/consultations invalid email -> 422",
+    "POST /api/consultations missing required -> 422",
+    "GET /api/consultations sorted by created_at desc, no _id leak",
+    "Resend email sends successfully (backend log: 'Notification email sent.') without breaking request",
+    "Home page loads with hero-section, curtain-canvas (WebGL), hero-title, hero-quote-btn, hero-draw-btn",
+    "hero-overline text = 'Melbourne · Officer South, VIC'",
+    "Navbar links present: nav-link-about, nav-link-services, nav-link-why us",
+    "Sections present: about-section, services-section, why-us-section, quote-section, footer",
+    "gallery-section and testimonials-section correctly ABSENT",
+    "WhyChooseUs heading 'Where luxury meets affordability.' + 4 cards (why-us-card-0..3) + why-us-cta all present",
+    "Google Analytics gtag script for G-D1LZR389FC present in <head>",
+    "Empty submit -> sonner error toast shown, no POST",
+    "Filled form (Custom Curtains) -> success toast, form resets, record persisted via GET /api/consultations"
+  ],
+  "test_report_links": ["/app/backend/tests/test_consultations.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Minor: POST /api/consultations returns 200 instead of 201 for resource creation (not a bug, but non-idiomatic REST).",
+    "Minor: send_notification_email swallows exceptions silently (only logs). This is intentional so email failures don't break the request, but consider surfacing to observability."
+  ],
+  "updated_files": ["/app/backend/tests/test_consultations.py", "/app/backend/tests/__init__.py"],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "seed_data_creation": "Several TEST_/E2E_ prefixed consultations were POSTed during testing; not cleaned up (no DELETE endpoint exists).",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Backend pytest suite at /app/backend/tests/test_consultations.py. Run with: pytest /app/backend/tests/ -v --junitxml=/app/test_reports/pytest/pytest_results.xml. RESEND_API_KEY is configured and emails actually send in this env."
+}
