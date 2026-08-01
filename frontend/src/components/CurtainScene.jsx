@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import React, { useRef, useMemo, Suspense } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useTexture, Environment } from "@react-three/drei";
+import { useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
 const TEXTURE_URL =
@@ -127,7 +127,6 @@ export default function CurtainScene({ openRef }) {
         <CurtainRod />
         <CurtainPanel side="left" openRef={openRef} />
         <CurtainPanel side="right" openRef={openRef} />
-        <Environment preset="apartment" />
       </Suspense>
       <Rig />
     </Canvas>
