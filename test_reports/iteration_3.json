@@ -1,0 +1,38 @@
+{
+  "summary": "Regression pass after QuoteForm API base change (dev vs prod). Backend pytest 6/6 pass. Frontend DOM renders with all correct sections/testids (curtain-canvas, about-section, services-section, why-us-section, quote-section, footer; gallery/testimonials correctly absent). Empty-submit ERROR toast confirmed via visual verification. Public API POST /api/consultations verified end-to-end via curl. In dev mode the form correctly hits REACT_APP_BACKEND_URL/api/consultations (code review + backend record creation confirmed).",
+  "tested_scope": ["backend", "frontend", "integration"],
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Hero (react-three/drei Environment)", "issue": "Failed to fetch lebombo_1k.hdr in dev mode -> triggers CRA 'Uncaught runtime errors' overlay on top of the app. App still functions (form and sections render), but the dev overlay intercepts pointer events and can block automated interaction. Not visible to end users on prod build, but poor DX in preview.", "selector": "curtain-canvas / Environment preset", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "passed": [
+    "Backend pytest 6/6 (POST valid -> 200 with uuid+created_at, invalid email -> 422, missing fields -> 422, GET sorted desc no _id leak, resend email non-blocking, GET /)",
+    "Frontend page loads; all required data-testid sections present: curtain-canvas, about-section, services-section, why-us-section, quote-section, footer",
+    "gallery-section and testimonials-section correctly ABSENT",
+    "Empty form submit -> sonner ERROR toast 'Please fill in your name, email, phone and service.' (visually confirmed)",
+    "quote-form + input-name/email/phone/message + select-service + submit-quote-btn all present with correct testids",
+    "Direct POST to public /api/consultations returns 200 with uuid+iso created_at (frontend uses same endpoint via REACT_APP_BACKEND_URL/api in dev)",
+    "QuoteForm.jsx code review: API base logic correct (dev+REACT_APP_BACKEND_URL -> `${url}/api`, else '/api'); posts to `${API}/consultations` with axios; success/error sonner toasts wired; form resets on success"
+  ],
+  "test_report_links": ["/app/backend/tests/test_consultations.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "MEDIUM: In HeroCanvas (react-three/drei), either self-host the HDR asset or handle the fetch failure gracefully so the CRA dev error overlay doesn't appear in preview. This blocks automated E2E clicks in dev and looks alarming to devs opening preview. Prod build (no overlay) should still render fine visually."
+  ],
+  "critical_code_review_comments": [
+    "QuoteForm API base logic looks correct and safe: falls back to '/api' when NODE_ENV!=='development' or REACT_APP_BACKEND_URL missing — matches the Vercel serverless deployment expectation.",
+    "Consider also using this dev/prod API base pattern anywhere else that calls the backend to keep consistency.",
+    "Backend still returns 200 (not 201) on POST /api/consultations — non-idiomatic but not blocking.",
+    "send_notification_email swallows exceptions (logs only) — intentional but consider observability hook."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100% (functional; dev-only overlay noted separately)"},
+  "test_credentials": "N/A - no auth",
+  "seed_data_creation": "One TEST_Iter3_curl consultation posted via curl to verify persistence. No cleanup endpoint.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Backend tests: pytest /app/backend/tests/ -v. The dev environment shows a react-error-overlay because Environment preset in HeroCanvas fails to fetch lebombo_1k.hdr; automated Playwright clicks must first remove that overlay (document.querySelectorAll('iframe').forEach(f=>f.remove())) or click inside it. The underlying page/form works fine — verified visually and via curl."
+}

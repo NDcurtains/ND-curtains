@@ -14,7 +14,13 @@ import {
 } from "./ui/select";
 import { Phone, Mail, MapPin, Loader2 } from "lucide-react";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+// In local dev (Emergent preview) we call the FastAPI backend via REACT_APP_BACKEND_URL.
+// In production (e.g. Vercel) we call the same-origin serverless function at /api.
+const isDev = process.env.NODE_ENV === "development";
+const API =
+  isDev && process.env.REACT_APP_BACKEND_URL
+    ? `${process.env.REACT_APP_BACKEND_URL}/api`
+    : "/api";
 
 const serviceOptions = [
   "Custom Curtains",
