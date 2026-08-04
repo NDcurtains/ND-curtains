@@ -7,7 +7,7 @@ const HomeCta = () => {
   return (
     <section data-testid="home-cta" className="relative overflow-hidden bg-ink py-28 lg:py-36">
       <div className="absolute inset-0 opacity-25">
-        <img src={IMAGES.custom} alt="" aria-hidden className="h-full w-full object-cover" />
+        <img src={IMAGES.custom} alt="" aria-hidden loading="lazy" decoding="async" className="h-full w-full object-cover" />
       </div>
       <div className="absolute inset-0 bg-ink/70" />
       <motion.div

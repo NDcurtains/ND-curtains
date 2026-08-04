@@ -3,12 +3,15 @@ export const BUSINESS = {
   name: "ND Curtains",
   tagline: "Curate. Design. Elevate.",
   strapline: "Where Luxury Meets Affordability",
+  streetAddress: "18 Tobruk Drive",
   locality: "Officer South",
   region: "VIC",
   postcode: "3809",
-  locationLine: "Officer South, VIC 3809",
+  locationLine: "18 Tobruk Drive, Officer South, VIC 3809",
   serviceArea:
     "Servicing Officer South, South East Melbourne and surrounding Melbourne areas.",
+  mapUrl:
+    "https://www.google.com/maps/search/?api=1&query=18+Tobruk+Drive+Officer+South+VIC+3809",
   email: "info@ndcurtains.com.au",
   phone: "0487 930 023",
   phoneIntl: "+61487930023",
@@ -18,13 +21,10 @@ export const BUSINESS = {
   siteUrl: "https://www.ndcurtains.com.au",
 };
 
-// Google review links — PLACEHOLDERS. Replace with the exact ND Curtains
-// Google Business Profile links once available.
+// Google review links (ND Curtains Google Business Profile)
 export const REVIEWS = {
   readUrl: "https://g.page/r/CQS6Yj_G-GQpEAE",
   writeUrl: "https://g.page/r/CQS6Yj_G-GQpEAE/review",
-  // Featurable embed goes here (widget id). Leave empty until provided.
-  featurableWidgetId: "",
 };
 
 export const FABRIC_SUPPLIERS = [
@@ -35,24 +35,25 @@ export const FABRIC_SUPPLIERS = [
   "Nettex",
   "Slender Morris",
   "James Dunlop",
-  "And more",
 ];
 
 export const BLIND_SUPPLIERS = ["Shaw", "Ocean Fabrics"];
 
+// Official supplier logo files (name -> hosted image URL).
+// Empty until official logos are provided; names render as elegant wordmarks meanwhile.
+export const SUPPLIER_LOGOS = {};
+
+// Optimised Unsplash images (auto=format serves webp; lower quality + sized widths for speed)
+const u = (id, w = 1000) =>
+  `https://images.unsplash.com/photo-${id}?crop=entropy&cs=srgb&auto=format&q=62&w=${w}`;
+
 export const IMAGES = {
-  interior:
-    "https://images.unsplash.com/photo-1704040686413-2c607dbd2f06?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
-  custom:
-    "https://images.unsplash.com/photo-1688647063090-36f36f692d95?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
-  sheer:
-    "https://images.unsplash.com/photo-1667584523543-d1d9cc828a15?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
-  sheerAlt:
-    "https://images.unsplash.com/photo-1754611362309-71297e9f42fd?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
-  blockout:
-    "https://images.unsplash.com/photo-1754611380518-61a923cc47ca?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
-  blinds:
-    "https://images.unsplash.com/photo-1776972334786-ae17d81b4572?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
+  interior: u("1704040686413-2c607dbd2f06", 1000),
+  custom: u("1688647063090-36f36f692d95", 1000),
+  sheer: u("1667584523543-d1d9cc828a15", 1000),
+  sheerAlt: u("1754611362309-71297e9f42fd", 1000),
+  blockout: u("1754611380518-61a923cc47ca", 1000),
+  blinds: u("1776972334786-ae17d81b4572", 1000),
 };
 
 export const NAV_LINKS = [

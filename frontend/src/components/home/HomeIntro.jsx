@@ -44,6 +44,8 @@ const HomeIntro = () => {
             <img
               src={IMAGES.interior}
               alt="Custom curtains in a luxury Melbourne living room"
+              loading="lazy"
+              decoding="async"
               className="h-[420px] w-full object-cover transition-transform duration-[1.4s] ease-out hover:scale-105 lg:h-[560px]"
             />
           </div>

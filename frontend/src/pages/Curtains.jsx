@@ -58,7 +58,7 @@ const Curtains = () => {
                 className={`grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16 ${i % 2 ? "lg:[&>*:first-child]:order-2" : ""}`}
               >
                 <div className="overflow-hidden rounded-sm">
-                  <img src={t.img} alt={`${t.title} by ND Curtains Melbourne`} className="h-[340px] w-full object-cover transition-transform duration-[1.4s] hover:scale-105 lg:h-[440px]" />
+                  <img src={t.img} alt={`${t.title} by ND Curtains Melbourne`} loading="lazy" decoding="async" className="h-[340px] w-full object-cover transition-transform duration-[1.4s] hover:scale-105 lg:h-[440px]" />
                 </div>
                 <div>
                   <span className="font-serif text-5xl text-gold/70">0{i + 1}</span>

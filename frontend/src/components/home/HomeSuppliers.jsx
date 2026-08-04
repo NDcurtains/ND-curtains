@@ -1,6 +1,6 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import SupplierGrid from "../SupplierGrid";
 import { FABRIC_SUPPLIERS, BLIND_SUPPLIERS } from "../../lib/constants";
 
 const HomeSuppliers = () => {
@@ -18,20 +18,7 @@ const HomeSuppliers = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {FABRIC_SUPPLIERS.map((name, i) => (
-            <motion.div
-              key={name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: (i % 4) * 0.06 }}
-              className="flex items-center justify-center rounded-sm border border-gold/20 bg-paper px-4 py-6 text-center transition-colors duration-300 hover:border-gold/60"
-            >
-              <span className="font-serif text-lg tracking-wide text-ink/80 sm:text-xl">{name}</span>
-            </motion.div>
-          ))}
-        </div>
+        <SupplierGrid names={FABRIC_SUPPLIERS} variant="light" testidPrefix="home-supplier" />
 
         <div className="mt-8 flex flex-col items-center gap-4">
           <p className="font-sans text-xs uppercase tracking-widest text-ink/50">

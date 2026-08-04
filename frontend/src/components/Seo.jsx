@@ -60,11 +60,13 @@ const Seo = ({ title, description, path = "/", jsonLd }) => {
         "Custom-made sheer curtains, blockout curtains and blinds in Melbourne. In-home measure, fabric selection and professional installation.",
       address: {
         "@type": "PostalAddress",
+        streetAddress: "18 Tobruk Drive",
         addressLocality: "Officer South",
         addressRegion: "VIC",
         postalCode: "3809",
         addressCountry: "AU",
       },
+      hasMap: "https://www.google.com/maps/search/?api=1&query=18+Tobruk+Drive+Officer+South+VIC+3809",
       areaServed: [
         "Officer South",
         "South East Melbourne",

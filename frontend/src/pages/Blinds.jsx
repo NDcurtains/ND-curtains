@@ -37,7 +37,7 @@ const Blinds = () => {
             className="overflow-hidden rounded-sm"
             style={{ clipPath: "polygon(0 3%, 100% 0, 100% 97%, 0 100%)" }}
           >
-            <img src={IMAGES.blinds} alt="Custom blinds by ND Curtains Melbourne" className="h-full min-h-[380px] w-full object-cover" />
+            <img src={IMAGES.blinds} alt="Custom blinds by ND Curtains Melbourne" loading="lazy" decoding="async" className="h-full min-h-[380px] w-full object-cover" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}

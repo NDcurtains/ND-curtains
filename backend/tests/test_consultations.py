@@ -73,6 +73,17 @@ def test_create_consultation_invalid_email(client):
     assert r.status_code == 422
 
 
+
+# ---- Empty string email should NOT 422 (frontend posts email:"") ----
+def test_create_consultation_empty_string_email(client):
+    unique = f"TEST_emptyemail_{uuid.uuid4().hex[:6]}"
+    r = client.post(f"{API}/consultations", json={
+        "name": unique, "phone": "0400111333", "service": "Blinds",
+        "email": "", "budget": "", "message": ""
+    })
+    assert r.status_code == 200, r.text
+    assert r.json()["email"] == ""
+
 # ---- POST missing required -> 422 ----
 def test_create_consultation_missing_fields(client):
     r = client.post(f"{API}/consultations", json={"name": "x"})
@@ -120,6 +131,40 @@ def test_list_consultations_sorted_desc(client):
     assert created_list == sorted(created_list, reverse=True)
     for x in items[:5]:
         assert "_id" not in x
+
+
+# ---- NEW: simplified quote payload (service field, email optional) ----
+def test_create_consultation_simplified_no_email(client):
+    unique = f"TEST_simple_{uuid.uuid4().hex[:8]}"
+    payload = {
+        "name": unique,
+        "phone": "0400111222",
+        "service": "Sheer Curtains",
+        "product": "Sheer Curtains",
+        "budget": "Under $1,000",
+        "message": "please contact me",
+    }
+    r = client.post(f"{API}/consultations", json=payload)
+    assert r.status_code == 200, r.text
+    data = r.json()
+    assert data["name"] == unique
+    assert data["service"] == "Sheer Curtains"
+    assert data["email"] == ""  # email omitted -> empty
+    assert data["phone"] == "0400111222"
+
+
+def test_create_consultation_only_required(client):
+    unique = f"TEST_req_{uuid.uuid4().hex[:8]}"
+    r = client.post(f"{API}/consultations", json={
+        "name": unique, "phone": "0400111222", "service": "Blinds"
+    })
+    assert r.status_code == 200, r.text
+    assert r.json()["service"] == "Blinds"
+
+
+def test_missing_phone_rejected(client):
+    r = client.post(f"{API}/consultations", json={"name": "TEST_x", "service": "Blinds"})
+    assert r.status_code == 422
 
 
 # ---- Attachments echoed as photo_count ----

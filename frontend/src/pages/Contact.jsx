@@ -11,7 +11,7 @@ const Contact = () => {
     { icon: Phone, label: "Phone", value: BUSINESS.phone, href: `tel:${BUSINESS.phoneIntl}`, testid: "contact-phone" },
     { icon: Mail, label: "Email", value: BUSINESS.email, href: `mailto:${BUSINESS.email}`, testid: "contact-email" },
     { icon: MessageCircle, label: "WhatsApp", value: "Message us", href: BUSINESS.whatsapp, testid: "contact-whatsapp" },
-    { icon: MapPin, label: "Location", value: BUSINESS.locationLine, href: null, testid: "contact-location" },
+    { icon: MapPin, label: "Location", value: BUSINESS.locationLine, href: BUSINESS.mapUrl, testid: "contact-location" },
   ];
 
   return (

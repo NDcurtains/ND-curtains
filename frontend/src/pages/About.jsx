@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import Seo from "../components/Seo";
 import PageHero from "../components/PageHero";
+import SupplierGrid from "../components/SupplierGrid";
 import { BUSINESS, FABRIC_SUPPLIERS, BLIND_SUPPLIERS, IMAGES } from "../lib/constants";
 
 const reasons = [
@@ -88,6 +89,8 @@ const About = () => {
               <img
                 src={IMAGES.interior}
                 alt="ND Curtains custom window furnishings in a Melbourne home"
+              loading="lazy"
+              decoding="async"
                 className="h-full min-h-[420px] w-full object-cover"
               />
             </div>
@@ -110,38 +113,12 @@ const About = () => {
           </div>
 
           <p className="mb-4 font-sans text-xs uppercase tracking-widest text-gold/70">Fabric Suppliers</p>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            {FABRIC_SUPPLIERS.map((name, i) => (
-              <motion.div
-                key={name}
-                data-testid={`fabric-supplier-${i}`}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: (i % 4) * 0.06 }}
-                className="flex items-center justify-center rounded-sm border border-gold/20 bg-charcoal/50 px-4 py-7 text-center transition-colors duration-300 hover:border-gold/60"
-              >
-                <span className="font-serif text-lg tracking-wide text-cream/90 sm:text-xl">{name}</span>
-              </motion.div>
-            ))}
-          </div>
+          <SupplierGrid names={FABRIC_SUPPLIERS} variant="dark" testidPrefix="fabric-supplier" />
 
           <p className="mb-4 mt-10 font-sans text-xs uppercase tracking-widest text-gold/70">Blind Suppliers</p>
-          <div className="grid grid-cols-2 gap-4 sm:max-w-md">
-            {BLIND_SUPPLIERS.map((name, i) => (
-              <div
-                key={name}
-                data-testid={`blind-supplier-${i}`}
-                className="flex items-center justify-center rounded-sm border border-gold/20 bg-charcoal/50 px-4 py-7 text-center"
-              >
-                <span className="font-serif text-lg tracking-wide text-cream/90 sm:text-xl">{name}</span>
-              </div>
-            ))}
+          <div className="sm:max-w-md">
+            <SupplierGrid names={BLIND_SUPPLIERS} variant="dark" testidPrefix="blind-supplier" />
           </div>
-
-          <p className="mt-8 font-sans text-xs italic text-cream/40">
-            Supplier names shown as text. Official logos will be added when provided.
-          </p>
         </div>
       </section>
     </>

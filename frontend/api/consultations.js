@@ -30,7 +30,7 @@ async function sendEmail(record, attachments) {
   const subject = `New quote request from ${record.name} (${record.suburb || "Melbourne"})`;
   const rows = [
     row("Name", record.name), row("Email", record.email), row("Phone", record.phone),
-    row("Suburb/Postcode", record.suburb), row("Product", record.product),
+    row("Service", record.service), row("Suburb/Postcode", record.suburb), row("Product", record.product),
     row("No. of Windows", record.windows), row("Preferred Style", record.style),
     row("Measurements", record.measurements), row("Budget", record.budget),
     row("Message", record.message), row("Photos", record.photo_count || ""),
@@ -45,10 +45,10 @@ async function sendEmail(record, attachments) {
     const payload = {
       from: process.env.SENDER_EMAIL || "ND Curtains <onboarding@resend.dev>",
       to: [to],
-      reply_to: record.email,
       subject,
       html,
     };
+    if (record.email) payload.reply_to = record.email;
     if (attachments && attachments.length) {
       payload.attachments = attachments.slice(0, 5).map((a) => ({ filename: a.filename, content: a.content }));
     }
@@ -95,10 +95,11 @@ module.exports = async (req, res) => {
     const name = (b.name || "").trim();
     const email = (b.email || "").trim();
     const phone = (b.phone || "").trim();
-    if (!name || !email || !phone || !(b.suburb || "").trim() || !(b.product || "").trim()) {
-      return res.status(422).json({ error: "Name, email, phone, suburb and product are required." });
+    const service = (b.service || b.product || "").trim();
+    if (!name || !phone || !service) {
+      return res.status(422).json({ error: "Name, phone and service are required." });
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return res.status(422).json({ error: "Please provide a valid email address." });
     }
 
@@ -106,8 +107,9 @@ module.exports = async (req, res) => {
     const record = {
       id: require("crypto").randomUUID(),
       name, email, phone,
+      service,
       suburb: (b.suburb || "").trim(),
-      product: (b.product || "").trim(),
+      product: (b.product || service).trim(),
       windows: (b.windows || "").toString().trim(),
       style: (b.style || "").trim(),
       measurements: (b.measurements || "").trim(),

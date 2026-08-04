@@ -7,7 +7,7 @@ import time
 import asyncio
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field, EmailStr, ConfigDict
+from pydantic import BaseModel, Field, EmailStr, ConfigDict, field_validator
 from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
@@ -47,8 +47,18 @@ class Attachment(BaseModel):
 
 class ConsultationCreate(BaseModel):
     name: str = Field(..., min_length=1, max_length=120)
-    email: EmailStr
+    email: Optional[EmailStr] = None
     phone: str = Field(..., min_length=3, max_length=40)
+
+    @field_validator("email", mode="before")
+    @classmethod
+    def _blank_email_to_none(cls, v):
+        # Frontend sends "" when field is left blank; treat as None to keep it optional.
+        if v is None or (isinstance(v, str) and v.strip() == ""):
+            return None
+        return v
+
+    service: Optional[str] = Field(default="", max_length=80)
     suburb: Optional[str] = Field(default="", max_length=120)
     product: Optional[str] = Field(default="", max_length=80)
     windows: Optional[str] = Field(default="", max_length=20)
@@ -64,8 +74,9 @@ class Consultation(BaseModel):
     model_config = ConfigDict(extra="ignore")
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     name: str
-    email: str
+    email: str = ""
     phone: str
+    service: str = ""
     suburb: str = ""
     product: str = ""
     windows: str = ""
@@ -94,7 +105,7 @@ async def send_notification_email(c: Consultation, attachments: List[Attachment]
         resend.api_key = RESEND_API_KEY
         rows = "".join([
             _row("Name", c.name), _row("Email", c.email), _row("Phone", c.phone),
-            _row("Suburb/Postcode", c.suburb), _row("Product", c.product),
+            _row("Service", c.service), _row("Suburb/Postcode", c.suburb), _row("Product", c.product),
             _row("No. of Windows", c.windows), _row("Preferred Style", c.style),
             _row("Measurements", c.measurements), _row("Budget", c.budget),
             _row("Message", c.message), _row("Photos", c.photo_count or ""),
@@ -107,10 +118,11 @@ async def send_notification_email(c: Consultation, attachments: List[Attachment]
         params = {
             "from": SENDER_EMAIL,
             "to": [NOTIFY_EMAIL],
-            "reply_to": c.email,
-            "subject": f"New quote request from {c.name} ({c.suburb or 'Melbourne'})",
+            "subject": f"New quote request from {c.name} ({c.service or c.suburb or 'Melbourne'})",
             "html": html,
         }
+        if c.email:
+            params["reply_to"] = c.email
         if attachments:
             params["attachments"] = [
                 {"filename": a.filename, "content": a.content} for a in attachments[:5]
@@ -131,16 +143,17 @@ async def create_consultation(payload: ConsultationCreate, request: Request):
     # honeypot: pretend success, do nothing
     if payload.company:
         logger.info("Honeypot triggered; dropping submission.")
-        return Consultation(name=payload.name, email=payload.email, phone=payload.phone)
+        return Consultation(name=payload.name, email=payload.email or "", phone=payload.phone)
 
     ip = request.client.host if request.client else "unknown"
     if rate_limited(ip):
         logger.warning("Rate limit hit for %s", ip)
-        return Consultation(name=payload.name, email=payload.email, phone=payload.phone)
+        return Consultation(name=payload.name, email=payload.email or "", phone=payload.phone)
 
     attachments = payload.attachments or []
     consult = Consultation(
-        name=payload.name, email=payload.email, phone=payload.phone,
+        name=payload.name, email=payload.email or "", phone=payload.phone,
+        service=payload.service or "",
         suburb=payload.suburb or "", product=payload.product or "",
         windows=payload.windows or "", style=payload.style or "",
         measurements=payload.measurements or "", budget=payload.budget or "",

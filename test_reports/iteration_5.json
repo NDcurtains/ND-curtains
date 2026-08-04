@@ -1,0 +1,53 @@
+{
+  "summary": "Focused regression for the simplified quote flow, compact supplier grid, and full-address rollout. Backend pytest: 11/11 passing (added 4 new tests for simplified schema: service field, empty-string email, no-email path, missing phone). Frontend E2E: simplified /get-a-quote form (name/phone/email(opt)/service/budget(opt)/message) validates empties with an error toast, and a successful submit with BLANK email now renders quote-confirmation ('Thank you for contacting ND Curtains'). About /about suppliers-section shows exactly 7 fabric-supplier-* and 2 blind-supplier-*; the 'Official logos will be added when provided' disclaimer is NOT present anywhere. Contact /contact contact-location links to google.com/maps and shows the full address '18 Tobruk Drive, Officer South, VIC 3809'; footer shows the same full address. Routes /, /about, /curtains, /blinds, /contact, /get-a-quote all 200 with no error selectors.",
+  "tested_scope": ["backend", "frontend", "integration"],
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "fixed_by_testing_agent": [
+    {
+      "issue": "CRITICAL: Submitting quote form with blank email returned 422 because Pydantic EmailStr rejected empty string. Frontend always posts {email: ''} for blank field so the primary spec ('email left blank is allowed') was broken end-to-end.",
+      "rca": "backend/server.py ConsultationCreate declares email as Optional[EmailStr]=None but empty-string coming from JSON bypasses the None default and hits EmailStr validation -> 422.",
+      "fix": "Added a @field_validator(mode='before') on ConsultationCreate.email that normalises '' / whitespace to None BEFORE EmailStr validation. Invalid non-empty emails still return 422 (verified). File: /app/backend/server.py.",
+      "verified_by": ["pytest test_create_consultation_empty_string_email", "UI submission with blank email -> quote-confirmation shown"]
+    }
+  ],
+  "passed": [
+    "Backend pytest 11/11: root, full payload, invalid email 422, missing fields 422, missing phone 422, honeypot dropped (200 not persisted), GET sorted desc no _id, attachments -> photo_count, simplified payload with service field, only-required (name+phone+service) 200, empty-string email 200",
+    "Quote form empty submit -> error toast; form retained (no confirmation)",
+    "Quote form valid submit WITHOUT email -> POST /api/consultations 200, quote-confirmation rendered with 'Thank you for contacting ND Curtains'",
+    "About suppliers-section: 7 fabric-supplier-* + 2 blind-supplier-* (matches spec); no 'Official logos will be added when provided' text anywhere",
+    "Contact contact-location href='https://www.google.com/maps/search/?api=1&query=18+Tobruk+Drive+Officer+South+VIC+3809' and text contains '18 Tobruk Drive, Officer South, VIC 3809'; footer also has full address",
+    "All 6 primary routes (/, /about, /curtains, /blinds, /contact, /get-a-quote) return 200 with no error elements"
+  ],
+  "test_report_links": [
+    "/app/backend/tests/test_consultations.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "server.py ConsultationCreate: EmailStr with empty string is a common client integration pitfall — now normalised via field_validator. Consider same pattern for any future optional email-typed fields.",
+    "server.py still contains legacy fields (suburb, windows, style, measurements, photo_count, photo_names, attachments) that are no longer surfaced by the simplified form. Not blocking, but the schema and _row/email template could be trimmed to match the new spec.",
+    "In-memory rate limiter (_rate) and best-effort Resend email are non-blocking; acceptable for MVP but should be replaced for multi-worker/production deploys.",
+    "POST /api/consultations returns 200 instead of 201 for a create; minor non-idiomatic but not blocking.",
+    "React console noise: 'Invalid DOM property fetchpriority (did you mean fetchPriority)' — a component is using lowercase `fetchpriority` on an <img>/<link>. Cosmetic only; grep for `fetchpriority=` in /app/frontend/src and switch to camelCase `fetchPriority`.",
+    "three/drei still emits THREE.Clock deprecation warning — harmless, tracked previously."
+  ],
+  "updated_files": [
+    "/app/backend/server.py",
+    "/app/backend/tests/test_consultations.py"
+  ],
+  "success_rate": {"backend": "100% (11/11)", "frontend": "100% functional on simplified quote spec"},
+  "test_credentials": "N/A - no auth",
+  "seed_data_creation": "Multiple TEST_* consultations created via pytest + one UI submission (TEST_UI_NoEmail_<ts>). No cleanup endpoint exists.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Simplified quote schema is: name, phone, service required; email optional (blank OK — backend normalises '' -> None before EmailStr). Frontend posts to `${REACT_APP_BACKEND_URL}/api/consultations` in dev, `/api/consultations` in prod. UI removes CRA iframe overlays before clicking. About page now has 7 fabric + 2 blind suppliers (no disclaimer). Footer + Contact both show '18 Tobruk Drive, Officer South, VIC 3809' and link to Google Maps via BUSINESS.mapUrl.",
+  "rca_of_the_issue": "The simplified GetAQuote.jsx spreads state {name, phone, email:'', service, budget:'', message:'', company:''} into axios.post body. On the backend, ConsultationCreate.email is Optional[EmailStr]=None but Pydantic v2 applies EmailStr validation as soon as any value (including '') is present in the JSON, since the default only applies when the key is absent. Frontend always includes email='', so backend returned 422 for every blank-email submission. Fix: field_validator(mode='before') converts '' -> None so EmailStr never sees an empty string; invalid non-empty emails still 422."
+}
