@@ -7,7 +7,7 @@ const PageHero = ({ overline, title, subtitle, image }) => {
       {image && (
         <>
           <div className="absolute inset-0 opacity-30">
-            <img src={image} alt="" aria-hidden fetchpriority="high" decoding="async" className="h-full w-full object-cover" />
+            <img src={image} alt="" aria-hidden fetchPriority="high" decoding="async" className="h-full w-full object-cover" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/60 to-ink" />
         </>
