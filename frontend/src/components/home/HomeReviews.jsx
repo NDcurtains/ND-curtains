@@ -4,40 +4,28 @@ import { Star } from "lucide-react";
 import { REVIEWS } from "../../lib/constants";
 
 const HomeReviews = () => {
-  const hasWidget = Boolean(REVIEWS.featurableWidgetId);
-
   return (
-    <section id="reviews" data-testid="home-reviews" className="relative bg-paper py-24 lg:py-32">
-      <div className="mx-auto max-w-6xl px-6 lg:px-10">
-        <div className="mb-12 text-center">
-          <div className="mb-4 flex items-center justify-center gap-1 text-gold">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} className="h-5 w-5 fill-gold" strokeWidth={0} />
-            ))}
-          </div>
-          <p className="font-sans text-xs uppercase tracking-[0.3em] text-gold">What our customers say</p>
-          <h2 className="mt-4 font-serif text-4xl font-light leading-tight text-ink sm:text-5xl">
-            Real experiences from our ND Curtains customers
-          </h2>
+    <section id="reviews" data-testid="home-reviews" className="relative grain bg-paper py-24 lg:py-32">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.8 }}
+        className="mx-auto max-w-3xl px-6 text-center lg:px-10"
+      >
+        <div className="mb-5 flex items-center justify-center gap-1.5 text-gold">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <Star key={i} className="h-6 w-6 fill-gold" strokeWidth={0} />
+          ))}
         </div>
-
-        {/* Google Reviews widget mount area (Featurable embed). */}
-        <div
-          id="featurable-widget"
-          data-testid="reviews-widget"
-          className="min-h-[200px] rounded-sm border border-gold/20 bg-cream p-6"
-        >
-          {!hasWidget && (
-            <div className="flex min-h-[180px] flex-col items-center justify-center text-center">
-              <p className="font-serif text-2xl text-ink/70">Google reviews load here</p>
-              <p className="mt-2 max-w-md font-sans text-sm text-ink/50">
-                Live Google reviews will appear in this section once the Featurable widget
-                embed code is connected.
-              </p>
-            </div>
-          )}
-          {/* When you provide the Featurable embed, it will be injected here. */}
-        </div>
+        <p className="font-sans text-xs uppercase tracking-[0.3em] text-gold">What our customers say</p>
+        <h2 className="mt-4 font-serif text-4xl font-light leading-tight text-ink sm:text-5xl">
+          Real experiences from our ND Curtains customers
+        </h2>
+        <p className="mx-auto mt-6 max-w-xl font-sans text-base leading-relaxed text-ink/70">
+          We're proud of the homes we've dressed across Melbourne. Read what our customers say on
+          Google — and if we've helped with your windows, we'd love you to share your experience.
+        </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
@@ -59,7 +47,7 @@ const HomeReviews = () => {
             Leave Us a Google Review
           </a>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
