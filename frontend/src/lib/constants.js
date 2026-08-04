@@ -30,18 +30,24 @@ export const REVIEWS = {
 export const FABRIC_SUPPLIERS = [
   "Hoad",
   "Charles Parsons",
-  "Orara",
   "Maurice Kain",
   "Nettex",
-  "Slender Morris",
+  "Warwick",
   "James Dunlop",
 ];
 
-export const BLIND_SUPPLIERS = ["Shaw", "Ocean Fabrics"];
+export const BLIND_SUPPLIERS = ["Shaw"];
 
-// Official supplier logo files (name -> hosted image URL).
-// Empty until official logos are provided; names render as elegant wordmarks meanwhile.
-export const SUPPLIER_LOGOS = {};
+// Official supplier logo files (name -> hosted image URL), provided by ND Curtains.
+export const SUPPLIER_LOGOS = {
+  "Hoad": "https://customer-assets-v7afamib.emergentagent.net/job_nd-curtains-animate/artifacts/w2uwp3um_Screenshot%202026-08-04%20at%206.24.22%E2%80%AFpm.png",
+  "Charles Parsons": "https://customer-assets-v7afamib.emergentagent.net/job_nd-curtains-animate/artifacts/nsp10l64_Screenshot%202026-08-04%20at%206.24.46%E2%80%AFpm.png",
+  "Maurice Kain": "https://customer-assets-v7afamib.emergentagent.net/job_nd-curtains-animate/artifacts/wism5mei_Screenshot%202026-08-04%20at%206.27.35%E2%80%AFpm.png",
+  "James Dunlop": "https://customer-assets-v7afamib.emergentagent.net/job_nd-curtains-animate/artifacts/f6hj15ql_Screenshot%202026-08-04%20at%206.29.51%E2%80%AFpm.png",
+  "Nettex": "https://customer-assets-v7afamib.emergentagent.net/job_nd-curtains-animate/artifacts/bu4q80mf_Screenshot%202026-08-04%20at%206.30.31%E2%80%AFpm.png",
+  "Shaw": "https://customer-assets-v7afamib.emergentagent.net/job_nd-curtains-animate/artifacts/8oglw2nb_Screenshot%202026-08-04%20at%206.31.14%E2%80%AFpm.png",
+  "Warwick": "https://customer-assets-v7afamib.emergentagent.net/job_nd-curtains-animate/artifacts/fsuk6jsu_Screenshot%202026-08-04%20at%206.35.39%E2%80%AFpm.png",
+};
 
 // Optimised Unsplash images (auto=format serves webp; lower quality + sized widths for speed)
 const u = (id, w = 1000) =>
