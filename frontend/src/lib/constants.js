@@ -21,10 +21,8 @@ export const BUSINESS = {
 // Google review links — PLACEHOLDERS. Replace with the exact ND Curtains
 // Google Business Profile links once available.
 export const REVIEWS = {
-  readUrl:
-    "https://www.google.com/search?q=ND+Curtains+Officer+South+reviews",
-  writeUrl:
-    "https://www.google.com/search?q=ND+Curtains+Officer+South",
+  readUrl: "https://g.page/r/CQS6Yj_G-GQpEAE",
+  writeUrl: "https://g.page/r/CQS6Yj_G-GQpEAE/review",
   // Featurable embed goes here (widget id). Leave empty until provided.
   featurableWidgetId: "",
 };
