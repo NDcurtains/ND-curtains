@@ -7,6 +7,7 @@ import HomeManifesto from "../components/home/HomeManifesto";
 import HomeShowcase from "../components/home/HomeShowcase";
 import HomeSuppliers from "../components/home/HomeSuppliers";
 import HomeReviews from "../components/home/HomeReviews";
+import HomeSoroBlog from "../components/home/HomeSoroBlog";
 import HomeCta from "../components/home/HomeCta";
 
 const MARQUEE = [
@@ -34,6 +35,7 @@ const Home = () => {
       <HomeShowcase />
       <HomeSuppliers />
       <HomeReviews />
+      <HomeSoroBlog />
       <HomeCta />
     </>
   );
