@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import PageHero from "../components/PageHero";
+import Gallery from "../components/Gallery";
 import { IMAGES } from "../lib/constants";
+import { CURTAIN_GALLERY } from "../lib/gallery";
 
 const types = [
   {
@@ -89,6 +91,14 @@ const Curtains = () => {
           </div>
         </div>
       </section>
+
+      <Gallery
+        testid="curtains-gallery"
+        overline="Curtain gallery"
+        title="Style inspiration"
+        subtitle="A selection of curtain styles to inspire your next window project."
+        items={CURTAIN_GALLERY}
+      />
     </>
   );
 };
