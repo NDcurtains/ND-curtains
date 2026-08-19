@@ -1,8 +1,9 @@
-import React from "react";
+ from "react";
 import { motion } from "framer-motion";
 
-// Responsive editorial gallery — clipped frames, staggered reveal on scroll.
-// Items: [{ src, alt, tall? }]
+// Masonry gallery — images keep their natural aspect ratio (no cropping).
+// Items: [{ src, alt }]  (the `tall` flag is ignored; layout is driven by
+// each image's own aspect ratio.)
 const Gallery = ({ overline = "Gallery", title, subtitle, items = [], testid = "gallery" }) => {
   return (
     <section data-testid={testid} className="relative bg-paper py-20 lg:py-24">
@@ -19,31 +20,25 @@ const Gallery = ({ overline = "Gallery", title, subtitle, items = [], testid = "
           )}
         </div>
 
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:gap-6">
+        <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 lg:gap-6 [&>*]:mb-4 lg:[&>*]:mb-6">
           {items.map((it, i) => (
             <motion.figure
               key={i}
               data-testid={`${testid}-item-${i}`}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
-            className={`group relative overflow-hidden rounded-sm border border-gold/15 ${
-                it.tall ? "row-span-2" : ""
-              }`}
-              style={{ clipPath: i % 4 === 0 ? "polygon(0 3%, 100% 0, 100% 97%, 0 100%)" : undefined }}
+              transition={{ duration: 0.55, delay: (i % 3) * 0.08 }}
+              className="group relative block break-inside-avoid overflow-hidden rounded-sm border border-gold/15 bg-cream"
             >
               <img
                 src={it.src}
                 alt={it.alt}
                 loading="lazy"
                 decoding="async"
-               className={`w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-110 ${
-  it.tall ? "h-[320px] md:h-[520px]" : "h-[220px] md:h-[260px]"
-}`}
-                }`}
+                className="block h-auto w-full transition-transform duration-[1.4s] ease-out group-hover:scale-[1.03]"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </motion.figure>
           ))}
         </div>
