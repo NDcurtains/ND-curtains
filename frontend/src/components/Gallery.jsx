@@ -1,4 +1,4 @@
- from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
 // Masonry gallery — images keep their natural aspect ratio (no cropping).
