@@ -12,11 +12,12 @@ import { IMAGES } from "./constants";
 export const CURTAIN_GALLERY = [
   // Placeholder items using the existing site imagery. Replace with real photos
   // by dropping files into /public/gallery/curtains/ and updating the src paths.
-  { src: IMAGES.sheer, alt: "Sheer curtains in a Melbourne living room", tall: true },
-  { src: IMAGES.blockout, alt: "Blockout curtains in a bedroom" },
-  { src: IMAGES.custom, alt: "Custom pinch pleat curtains" },
-  { src: IMAGES.sheerAlt, alt: "Light-filtering sheer curtains" },
-  { src: IMAGES.interior, alt: "Layered curtains in a Melbourne home" },
+  { src: "/gallery/curtains/1.jpg", alt: "Custom curtains by ND Curtains" },
+{ src: "/gallery/curtains/2.jpg", alt: "Made to measure curtains by ND Curtains" },
+{ src: "/gallery/curtains/3.jpg", alt: "Elegant custom curtains in Melbourne" },
+{ src: "/gallery/curtains/4.jpg", alt: "Luxury curtains by ND Curtains" },
+{ src: "/gallery/curtains/pink curtains.jpeg", alt: "Pink custom curtains by ND Curtains" },
+  
   // Example of a locally uploaded photo (uncomment and match your file):
   // { src: "/gallery/curtains/lounge-sfold.jpg", alt: "S-Fold sheer curtains in a lounge" },
 ];
