@@ -24,10 +24,7 @@ export const CURTAIN_GALLERY = [
 
 export const BLIND_GALLERY = [
   { src: "/gallery/blinds/blinds.jpeg", alt: "Custom blinds by ND Curtains" },
-  { src: IMAGES.blinds, alt: "Roller blinds in a Melbourne home", tall: true },
-  { src: IMAGES.custom, alt: "Blinds layered with sheer curtains" },
-  { src: IMAGES.interior, alt: "Blinds in a living space" },
-  { src: IMAGES.sheerAlt, alt: "Sunscreen roller blind detail" },
+
   // Example of a locally uploaded photo (uncomment and match your file):
   // { src: "/gallery/blinds/kitchen-zebra.jpg", alt: "Zebra day-and-night blind in a kitchen" },
 ];
