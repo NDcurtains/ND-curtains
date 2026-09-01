@@ -10,6 +10,8 @@ import { BLIND_GALLERY } from "../lib/gallery";
 
 const blindTypes = [
   { name: "Roller Blinds", desc: "Streamlined blinds on a smooth roller mechanism — a versatile, all-round choice for most rooms." },
+  { name: "Plantation Shutters", desc: "Stylish, durable shutters with adjustable louvres, offering excellent light control, privacy and a timeless finish." },
+  { name: "Fly screens", desc: "Practical mesh screens that allow fresh air and natural light in while keeping insects and pests out." },
   { name: "Dual Roller Blinds", desc: "Two roller blinds on one bracket (typically sunscreen + blockout) so you can switch between soft daylight and full privacy." },
   { name: "Zebra / Day & Night Blinds", desc: "Alternating sheer and opaque horizontal bands that align to control light, view and privacy." },
   { name: "Sunscreen Roller Blinds", desc: "Light-filtering fabric that softens glare and reduces heat while keeping your outward view." },
