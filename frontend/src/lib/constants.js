@@ -33,10 +33,11 @@ export const FABRIC_SUPPLIERS = [
   "Maurice Kain",
   "Nettex",
   "Warwick",
-  "James Dunlop",
+  "Mokum"
+  "Slender Morris",
 ];
 
-export const BLIND_SUPPLIERS = ["Shaw"];
+export const BLIND_SUPPLIERS = ["Shaw", "Vertex", "Uniline",];
 
 // Official supplier logo files (name -> hosted image URL), provided by ND Curtains.
 export const SUPPLIER_LOGOS = {
