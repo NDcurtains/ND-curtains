@@ -24,10 +24,10 @@ export const CURTAIN_GALLERY = [
 
 export const BLIND_GALLERY = [
   { src: "/gallery/blinds/blinds.jpeg", alt: "Custom blinds by ND Curtains" },
-  { src: "/gallery/blinds/living.jpg", alt: "Custom blinds by ND Curtains" },
-  { src: "/gallery/blinds/kitchen.jpg", alt: "Custom blinds by ND Curtains" },
-  { src: "/gallery/blinds/bedroom.jpg", alt: "Custom blinds by ND Curtains" },
-  { src: "/gallery/blinds/dining.jpg", alt: "Custom blinds by ND Curtains" },
+  { src: "/gallery/blinds/living.JPG", alt: "Custom blinds by ND Curtains" },
+  { src: "/gallery/blinds/kitchen.JPG", alt: "Custom blinds by ND Curtains" },
+  { src: "/gallery/blinds/bedroom.JPG", alt: "Custom blinds by ND Curtains" },
+  { src: "/gallery/blinds/dining.JPG", alt: "Custom blinds by ND Curtains" },
 
   // Example of a locally uploaded photo (uncomment and match your file):
   // { src: "/gallery/blinds/kitchen-zebra.jpg", alt: "Zebra day-and-night blind in a kitchen" },
