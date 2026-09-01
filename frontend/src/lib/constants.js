@@ -59,7 +59,7 @@ export const IMAGES = {
   sheer: u("1667584523543-d1d9cc828a15", 1000),
   sheerAlt: u("1754611362309-71297e9f42fd", 1000),
   blockout: u("1754611380518-61a923cc47ca", 1000),
-  blinds: u("1776972334786-ae17d81b4572", 1000),
+  blinds: "/gallery/blinds/nd-blinds.jpg",
 };
 
 export const NAV_LINKS = [
