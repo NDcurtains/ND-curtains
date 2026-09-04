@@ -16,9 +16,9 @@ export const CURTAIN_GALLERY = [
 { src: "/gallery/curtains/2.jpg", alt: "Made to measure curtains by ND Curtains" },
 { src: "/gallery/curtains/3.jpg", alt: "Elegant custom curtains in Melbourne" },
 { src: "/gallery/curtains/4.jpg", alt: "Luxury curtains by ND Curtains" },
-{ src: "/gallery/curtains/5.jpg", alt: "Luxury curtains by ND Curtains" },
-{ src: "/gallery/curtains/6.jpg", alt: "Luxury curtains by ND Curtains" },
-{ src: "/gallery/curtains/7.jpg", alt: "Luxury curtains by ND Curtains" },
+{ src: "/gallery/curtains/5.JPG", alt: "sheer curtains by ND Curtains" },
+{ src: "/gallery/curtains/6.JPG", alt: "Luxury sheer curtains by ND Curtains" },
+{ src: "/gallery/curtains/7.JPG", alt: "Luxury curtains" },
 { src: "/gallery/curtains/pink-curtains.jpeg", alt: "Pink custom curtains by ND Curtains" },
   
   // Example of a locally uploaded photo (uncomment and match your file):
