@@ -29,7 +29,7 @@ const Blinds = () => {
     <>
       <Seo
         title="Custom Blinds Melbourne — Measure, Supply & Install"
-        description="Custom-made blinds in Melbourne from ND Curtains. Made-to-measure blinds through trusted suppliers Shaw and Ocean Fabrics, with in-home measure and professional installation across South East Melbourne."
+        description="Custom-made blinds in Melbourne from ND Curtains & Blinds. Made-to-measure blinds through trusted suppliers Shaw and Ocean Fabrics, with in-home measure and professional installation across South East Melbourne."
         path="/blinds"
       />
       <PageHero
@@ -49,7 +49,7 @@ const Blinds = () => {
             className="overflow-hidden rounded-sm"
             style={{ clipPath: "polygon(0 3%, 100% 0, 100% 97%, 0 100%)" }}
           >
-            <img src={IMAGES.blinds} alt="Custom blinds by ND Curtains Melbourne" loading="lazy" decoding="async" className="h-full min-h-[380px] w-full object-cover" />
+            <img src={IMAGES.blinds} alt="Custom blinds by ND Curtains & BLinds Melbourne" loading="lazy" decoding="async" className="h-full min-h-[380px] w-full object-cover" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -59,7 +59,7 @@ const Blinds = () => {
           >
             <h2 className="font-serif text-3xl font-light text-ink sm:text-4xl">Blinds, tailored to your home</h2>
             <p className="mt-5 max-w-lg font-sans text-base leading-relaxed text-ink/70">
-              ND Curtains supplies and installs custom-made blinds to suit your windows, style and
+              ND Curtains & Blinds supplies and installs custom-made blinds to suit your windows, style and
               budget. We measure in your home, help you choose the right option, and install
               everything professionally — the same considered service we bring to our curtains.
             </p>
