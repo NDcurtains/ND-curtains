@@ -54,7 +54,7 @@ const HomeShowcase = () => {
                 <div className="relative overflow-hidden rounded-sm">
                   <img
                     src={s.img}
-                    alt={`${s.title} by ND Curtains Melbourne`}
+                    alt={`${s.title} by ND Curtains & Blinds Melbourne`}
                     loading="lazy"
                     decoding="async"
                     className="h-[420px] w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-110"
