@@ -23,7 +23,7 @@ const Footer = () => {
                 <img src={BUSINESS.logo} alt="ND Curtains & Blinds logo" data-testid="footer-logo" className="h-14 w-14 object-contain" />
               </span>
               <div>
-                <p className="font-serif text-2xl tracking-[0.2em] text-cream">ND <span className="text-gold">CURTAINS</span></p>
+                <p className="font-serif text-2xl tracking-[0.2em] text-cream">ND <span className="text-gold">CURTAINS & BLINDS</span></p>
                 <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-gold/70">Curate. Design. Elevate.</p>
               </div>
             </div>
