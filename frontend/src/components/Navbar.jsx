@@ -31,7 +31,7 @@ const Navbar = () => {
             <img src={BUSINESS.logo} alt="ND Curtains & Blinds — custom curtains and blinds Melbourne" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
           </span>
           <span className={`font-serif text-xl tracking-[0.22em] transition-colors ${solid ? "text-ink" : "text-cream"}`}>
-            ND <span className="text-gold">CURTAINS</span>
+            ND <span className="text-gold">CURTAINS & BLINDS</span>
           </span>
         </Link>
 
