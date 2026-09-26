@@ -28,7 +28,7 @@ const Navbar = () => {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-10">
         <Link to="/" data-testid="nav-logo" className="flex items-center gap-3">
           <span className="rounded-md bg-cream p-1.5">
-            <img src={BUSINESS.logo} alt="ND Curtains — custom curtains and blinds Melbourne" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
+            <img src={BUSINESS.logo} alt="ND Curtains & Blinds — custom curtains and blinds Melbourne" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
           </span>
           <span className={`font-serif text-xl tracking-[0.22em] transition-colors ${solid ? "text-ink" : "text-cream"}`}>
             ND <span className="text-gold">CURTAINS</span>
