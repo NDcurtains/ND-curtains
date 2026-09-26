@@ -17,13 +17,13 @@ const Contact = () => {
   return (
     <>
       <Seo
-        title="Contact ND Curtains — Curtains & Blinds Melbourne"
-        description="Contact ND Curtains for custom curtains and blinds in Melbourne. Call or WhatsApp 0487 930 023, email info@ndcurtains.com.au. Servicing Officer South and South East Melbourne."
+        title="Contact ND Curtains & Blinds — Curtains & Blinds Melbourne"
+        description="Contact ND Curtains & Blinds for custom curtains and blinds in Melbourne. Call or WhatsApp 0477 696 074, email info@ndcurtains.com.au. Servicing Officer South and South East Melbourne."
         path="/contact"
       />
       <PageHero
         overline="Get in touch"
-        title="Contact ND Curtains"
+        title="Contact ND Curtains & Blinds"
         subtitle={BUSINESS.serviceArea}
         image={IMAGES.interior}
       />
