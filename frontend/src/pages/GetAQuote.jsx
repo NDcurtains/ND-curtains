@@ -88,7 +88,7 @@ const GetAQuote = () => {
               className="rounded-sm border border-gold/30 bg-paper p-10 text-center lg:p-14"
             >
               <CheckCircle2 className="mx-auto h-14 w-14 text-gold" strokeWidth={1.3} />
-              <h2 className="mt-6 font-serif text-3xl font-light text-ink sm:text-4xl">Thank you for contacting ND Curtains.</h2>
+              <h2 className="mt-6 font-serif text-3xl font-light text-ink sm:text-4xl">Thank you for contacting ND Curtains & Blinds.</h2>
               <p className="mx-auto mt-4 max-w-lg font-sans text-base leading-relaxed text-ink/70">
                 We have received your quote request and will be in touch shortly.
               </p>
