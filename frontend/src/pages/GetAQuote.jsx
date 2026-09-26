@@ -51,7 +51,7 @@ const GetAQuote = () => {
       setDone(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
-      toast.error("Something went wrong. Please call us on 0487 930 023.");
+      toast.error("Something went wrong. Please call us on 0477 696 074.");
     } finally {
       setLoading(false);
     }
