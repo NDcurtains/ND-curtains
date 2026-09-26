@@ -25,7 +25,7 @@ const Home = () => {
     <>
       <Seo
         title="Custom Curtains & Blinds Melbourne"
-        description="ND Curtains — custom-made sheer curtains, blockout curtains and blinds in Melbourne. In-home measure, premium and affordable fabrics, S-Fold/Wave and Pinch Pleat. Servicing Officer South & South East Melbourne."
+        description="ND Curtains & Blinds — custom-made sheer curtains, blockout curtains and blinds in Melbourne. In-home measure, premium and affordable fabrics, S-Fold/Wave and Pinch Pleat. Servicing Officer South & South East Melbourne."
         path="/"
       />
       <HomeHero />
