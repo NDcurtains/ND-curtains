@@ -14,12 +14,12 @@ const HomeIntro = () => {
           transition={{ duration: 0.9 }}
           className="lg:col-span-6"
         >
-          <p className="font-sans text-xs uppercase tracking-[0.3em] text-gold">Welcome to ND Curtains</p>
+          <p className="font-sans text-xs uppercase tracking-[0.3em] text-gold">Welcome to ND Curtains & Blinds</p>
           <h2 className="mt-5 font-serif text-4xl font-light leading-tight text-ink sm:text-5xl">
             Beautiful, custom window furnishings — crafted for the way you live.
           </h2>
           <p className="mt-6 max-w-lg font-sans text-base leading-relaxed text-ink/70">
-            With 10+ years of industry experience, ND Curtains creates made-to-measure sheer
+            With 10+ years of industry experience, ND Curtains & Blinds creates made-to-measure sheer
             curtains, blockout curtains and blinds for Melbourne homes — from affordable everyday
             fabrics to premium designer collections.
           </p>
