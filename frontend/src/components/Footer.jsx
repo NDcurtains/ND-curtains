@@ -20,7 +20,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-3">
               <span className="rounded-md bg-cream p-2">
-                <img src={BUSINESS.logo} alt="ND Curtains logo" data-testid="footer-logo" className="h-14 w-14 object-contain" />
+                <img src={BUSINESS.logo} alt="ND Curtains & Blinds logo" data-testid="footer-logo" className="h-14 w-14 object-contain" />
               </span>
               <div>
                 <p className="font-serif text-2xl tracking-[0.2em] text-cream">ND <span className="text-gold">CURTAINS</span></p>
@@ -56,7 +56,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 flex flex-col items-center justify-between gap-3 font-sans text-xs text-cream/40 sm:flex-row">
-          <p>© {new Date().getFullYear()} ND Curtains. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} ND Curtains & Blinds. All rights reserved.</p>
           <p>{BUSINESS.locationLine} · Australia</p>
         </div>
       </div>
