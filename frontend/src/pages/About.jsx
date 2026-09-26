@@ -66,7 +66,7 @@ const About = () => {
             </ul>
 
             <p className="mt-10 font-serif text-2xl italic text-ink">
-              ND Curtains &mdash; <span className="text-gold">Where Luxury Meets Affordability.</span>
+              ND Curtains & Blinds &mdash; <span className="text-gold">Where Luxury Meets Affordability.</span>
             </p>
 
             <Link
