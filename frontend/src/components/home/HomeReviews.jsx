@@ -20,7 +20,7 @@ const HomeReviews = () => {
         </div>
         <p className="font-sans text-xs uppercase tracking-[0.3em] text-gold">What our customers say</p>
         <h2 className="mt-4 font-serif text-4xl font-light leading-tight text-ink sm:text-5xl">
-          Real experiences from our ND Curtains customers
+          Real experiences from our ND Curtains & Blinds customers
         </h2>
         <p className="mx-auto mt-6 max-w-xl font-sans text-base leading-relaxed text-ink/70">
           We're proud of the homes we've dressed across Melbourne. Read what our customers say on
