@@ -35,7 +35,7 @@ const WhyChooseUs = () => {
             Where luxury meets <span className="italic text-champagne">affordability</span>.
           </h2>
           <p className="mt-5 font-sans text-base leading-relaxed text-cream/70">
-            We believe a beautifully dressed home shouldn’t cost a fortune. ND Curtains brings you
+            We believe a beautifully dressed home shouldn’t cost a fortune. ND Curtains & Blinds brings you
             high-end curtains and blinds at genuinely accessible prices — the luxury look, without the luxury markup.
           </p>
         </div>
