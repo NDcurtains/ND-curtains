@@ -1,6 +1,6 @@
 // Central business info — single source of truth (NAP + links)
 export const BUSINESS = {
-  name: "ND Curtains",
+  name: "ND Curtains & Blinds",
   tagline: "Curate. Design. Elevate.",
   strapline: "Where Luxury Meets Affordability",
   streetAddress: "18 Tobruk Drive",
@@ -13,9 +13,9 @@ export const BUSINESS = {
   mapUrl:
     "https://www.google.com/maps/search/?api=1&query=18+Tobruk+Drive+Officer+South+VIC+3809",
   email: "info@ndcurtains.com.au",
-  phone: "0487 930 023",
-  phoneIntl: "+61487930023",
-  whatsapp: "https://wa.me/61487930023",
+  phone: "0477 696 074",
+  phoneIntl: "+61477696074",
+  whatsapp: "https://wa.me/61477696074",
   logo:
     "https://customer-assets.emergentagent.com/job_nd-curtains-animate/artifacts/mdg8r6ar_IMG_4895.jpeg",
   siteUrl: "https://www.ndcurtains.com.au",
