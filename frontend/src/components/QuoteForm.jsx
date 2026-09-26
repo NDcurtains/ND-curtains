@@ -49,7 +49,7 @@ const QuoteForm = () => {
       toast.success("Thank you! We'll be in touch shortly to arrange your free consultation.");
       setForm({ name: "", email: "", phone: "", service: "", message: "" });
     } catch (err) {
-      toast.error("Something went wrong. Please call us on 0487 930 023.");
+      toast.error("Something went wrong. Please call us on 0477 696 074.");
     } finally {
       setLoading(false);
     }
@@ -79,9 +79,9 @@ const QuoteForm = () => {
           </p>
 
           <div className="mt-10 space-y-5">
-            <a href="tel:0487930023" data-testid="contact-phone" className="flex items-center gap-4 text-ink transition-colors hover:text-gold">
+            <a href="tel:0477696074" data-testid="contact-phone" className="flex items-center gap-4 text-ink transition-colors hover:text-gold">
               <span className="flex h-11 w-11 items-center justify-center rounded-full border border-gold/40"><Phone className="h-4 w-4 text-gold" /></span>
-              <span className="font-sans text-sm tracking-wide">0487 930 023</span>
+              <span className="font-sans text-sm tracking-wide">0477 696 074</span>
             </a>
             <a href="mailto:info@ndcurtains.com.au" data-testid="contact-email" className="flex items-center gap-4 text-ink transition-colors hover:text-gold">
               <span className="flex h-11 w-11 items-center justify-center rounded-full border border-gold/40"><Mail className="h-4 w-4 text-gold" /></span>
