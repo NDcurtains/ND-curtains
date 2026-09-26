@@ -22,11 +22,11 @@ const About = () => {
     <>
       <Seo
         title="About Us — Custom Curtains & Blinds Melbourne"
-        description="ND Curtains brings 10+ years of experience in custom sheer curtains, blockout curtains and blinds for Melbourne homes. Servicing Officer South & South East Melbourne, with fabrics from leading suppliers."
+        description="ND Curtains & Blinds brings 10+ years of experience in custom sheer curtains, blockout curtains and blinds for Melbourne homes. Servicing Officer South & South East Melbourne, with fabrics from leading suppliers."
         path="/about"
       />
       <PageHero
-        overline="About ND Curtains"
+        overline="About ND Curtains & Blinds"
         title="Custom Curtains & Blinds in Melbourne"
         subtitle={BUSINESS.serviceArea}
         image={IMAGES.sheerAlt}
@@ -43,7 +43,7 @@ const About = () => {
             className="lg:col-span-7"
           >
             <p className="font-sans text-base leading-relaxed text-ink/75">
-              ND Curtains brings 10+ years of industry experience, specialising in custom-made
+              ND Curtains & Blinds brings 10+ years of industry experience, specialising in custom-made
               sheer curtains, blockout curtains and blinds. We provide personalised window
               furnishing solutions for Melbourne homes, with options ranging from affordable
               everyday fabrics to premium designer collections.
@@ -53,7 +53,7 @@ const About = () => {
               along with blinds from {BLIND_SUPPLIERS.join(" and ")}.
             </p>
 
-            <h2 className="mt-12 font-serif text-3xl font-light text-ink sm:text-4xl">Why Choose ND Curtains?</h2>
+            <h2 className="mt-12 font-serif text-3xl font-light text-ink sm:text-4xl">Why Choose ND Curtains & Blinds?</h2>
             <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2" data-testid="about-reasons">
               {reasons.map((r) => (
                 <li key={r} className="flex items-start gap-3">
@@ -88,7 +88,7 @@ const About = () => {
             <div className="overflow-hidden rounded-sm" style={{ clipPath: "polygon(0 0, 100% 3%, 100% 97%, 0 100%)" }}>
               <img
                 src={IMAGES.interior}
-                alt="ND Curtains custom window furnishings in a Melbourne home"
+                alt="ND Curtains & Blinds custom window furnishings in a Melbourne home"
               loading="lazy"
               decoding="async"
                 className="h-full min-h-[420px] w-full object-cover"
