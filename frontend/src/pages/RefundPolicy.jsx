@@ -65,11 +65,11 @@ const RefundPolicy = () => {
   return (
     <LegalPage
       seoTitle="Refund & Cancellation Policy"
-      seoDescription="ND Curtains refund and cancellation policy for custom-made curtains and blinds. Deposit terms, change-of-mind cancellations and your rights under Australian Consumer Law."
+      seoDescription="ND Curtains & Blinds refund and cancellation policy for custom-made curtains and blinds. Deposit terms, change-of-mind cancellations and your rights under Australian Consumer Law."
       path="/refund-policy"
       overline="Our policy"
       title="Refund & Cancellation Policy"
-      intro="At ND Curtains, we specialise in custom-made and made-to-measure window furnishings. Because each order is manufactured specifically for your windows and chosen fabrics, our cancellation and refund terms reflect the tailored nature of our products. This policy operates alongside — and does not exclude, restrict or modify — your rights under the Australian Consumer Law (ACL)."
+      intro="At ND Curtains & Blinds, we specialise in custom-made and made-to-measure window furnishings. Because each order is manufactured specifically for your windows and chosen fabrics, our cancellation and refund terms reflect the tailored nature of our products. This policy operates alongside — and does not exclude, restrict or modify — your rights under the Australian Consumer Law (ACL)."
       sections={sections}
       footerNote={<>Questions about your order? <Link to="/contact" className="text-gold hover:underline">Contact us</Link> and we'll be glad to help.</>}
     />
