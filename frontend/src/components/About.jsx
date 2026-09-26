@@ -39,7 +39,7 @@ const About = () => {
           transition={{ duration: 0.9, delay: 0.15 }}
           className="lg:col-span-6"
         >
-          <p className="font-sans text-xs uppercase tracking-[0.3em] text-gold">Welcome to ND Curtains</p>
+          <p className="font-sans text-xs uppercase tracking-[0.3em] text-gold">Welcome to ND Curtains & Blinds</p>
           <h2 className="mt-5 font-serif text-4xl font-light leading-tight text-ink sm:text-5xl">
             Beautiful, custom window furnishings — crafted for the way you live.
           </h2>
