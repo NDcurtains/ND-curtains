@@ -44,6 +44,7 @@ export const BLIND_GALLERY = [
   { src: "/gallery/blinds/B3.JPG", alt: "Luxury Blinds" },
   { src: "/gallery/blinds/B4.JPG", alt: "Best blinds" },
   { src: "/gallery/blinds/B5.JPG", alt: "Blinds in Melbourne" },
+  { src: "/gallery/blinds/B6.JPG", alt: "Cheap blinds" },
 
   // Example of a locally uploaded photo (uncomment and match your file):
   // { src: "/gallery/blinds/kitchen-zebra.jpg", alt: "Zebra day-and-night blind in a kitchen" },
