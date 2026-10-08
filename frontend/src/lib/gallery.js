@@ -39,6 +39,11 @@ export const BLIND_GALLERY = [
   { src: "/gallery/blinds/kitchen.JPG", alt: "Custom blinds by ND Curtains" },
   { src: "/gallery/blinds/bedroom.JPG", alt: "Custom blinds by ND Curtains" },
   { src: "/gallery/blinds/dining.JPG", alt: "Custom blinds by ND Curtains" },
+  { src: "/gallery/blinds/B1.JPG", alt: "Affordable blinds" },
+  { src: "/gallery/blinds/B2.JPG", alt: "Quality blinds" },
+  { src: "/gallery/blinds/B3.JPG", alt: "Luxury Blinds" },
+  { src: "/gallery/blinds/B4.JPG", alt: "Best blinds" },
+  { src: "/gallery/blinds/B5.JPG", alt: "Blinds in Melbourne" },
 
   // Example of a locally uploaded photo (uncomment and match your file):
   // { src: "/gallery/blinds/kitchen-zebra.jpg", alt: "Zebra day-and-night blind in a kitchen" },
