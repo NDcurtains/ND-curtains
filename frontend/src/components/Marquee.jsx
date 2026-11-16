@@ -3,6 +3,20 @@ import React from "react";
 // Slow editorial marquee band.
 const Marquee = ({ items, className = "", dark = true }) => {
   const content = items.join("      \u00B7      ");
+  const renderContent = () => {
+    const parts = content.split("0477 696 074");
+    return parts.flatMap((part, index) =>
+      index === 0
+        ? [part]
+        : [
+            <span key={`phone-${index}`} className="font-sans tracking-normal normal-case">
+              0477 696 074
+            </span>,
+            part,
+          ]
+    );
+  };
+
   return (
     <div
       data-testid="marquee"
@@ -18,7 +32,7 @@ const Marquee = ({ items, className = "", dark = true }) => {
               dark ? "text-cream/90" : "text-ink"
             }`}
           >
-            {content}
+            {renderContent()}
             <span className="mx-8 text-gold">&#10022;</span>
           </span>
         ))}
