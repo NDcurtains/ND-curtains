@@ -11,7 +11,7 @@ import HomeSoroBlog from "../components/home/HomeSoroBlog";
 import HomeCta from "../components/home/HomeCta";
 
 const MARQUEE = [
-  "Contact us on 0477 696 074 or info@ndcurtains.com.au, installed within 2 weeks",
+  "Contact us on +61 477 696 074 or info@ndcurtains.com.au, installed within 2 weeks",
 ];
 
 const Home = () => {
