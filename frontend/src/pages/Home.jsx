@@ -11,13 +11,7 @@ import HomeSoroBlog from "../components/home/HomeSoroBlog";
 import HomeCta from "../components/home/HomeCta";
 
 const MARQUEE = [
-  "Custom Curtains",
-  "Sheer",
-  "Blockout",
-  "Double Curtains",
-  "S-Fold / Wave",
-  "Pinch Pleat",
-  "Blinds",
+  "Contact us on 0477 696 074 or info@ndcurtains.com.au, installed within 2 weeks",
 ];
 
 const Home = () => {
