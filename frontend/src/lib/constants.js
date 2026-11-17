@@ -13,7 +13,7 @@ export const BUSINESS = {
   mapUrl:
     "https://www.google.com/maps/search/?api=1&query=18+Tobruk+Drive+Officer+South+VIC+3809",
   email: "info@ndcurtains.com.au",
-  phone: "(04) 7769 6074",
+  phone: "+61477696074",
   phoneIntl: "+61477696074",
   whatsapp: "https://wa.me/61477696074",
   logo:
