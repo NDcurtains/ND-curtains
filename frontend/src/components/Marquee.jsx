@@ -4,7 +4,7 @@ import React from "react";
 const Marquee = ({ items, className = "", dark = true }) => {
   const content = items.join("      \u00B7      ");
   const renderContent = () =>
-    content.split(/(\\+61477696074|2(?= weeks))/g).map((part, index) =>
+    content.split(/(\+61477696074|2(?= weeks))/g).map((part, index) =>
       part === "+61477696074" || part === "2" ? (
         <span key={`plain-number-${index}`} className="font-sans tracking-normal normal-case">
           {part}
