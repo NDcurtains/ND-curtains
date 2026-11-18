@@ -48,6 +48,10 @@ const GetAQuote = () => {
     setLoading(true);
     try {
       await axios.post(`${API}/consultations`, { ...form, product: form.service });
+      // Track a genuine lead only after the quote request is accepted by the server.
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead");
+      }
       setDone(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
