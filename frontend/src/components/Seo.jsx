@@ -22,10 +22,6 @@ function upsertLink(rel, href) {
   el.setAttribute("href", href);
 }
 
-/**
- * Lightweight SEO head manager (CSR-safe): sets title, meta description,
- * canonical, Open Graph/Twitter tags, and LocalBusiness JSON-LD.
- */
 const Seo = ({ title, description, path = "/", jsonLd }) => {
   useEffect(() => {
     const fullTitle = title
@@ -35,6 +31,7 @@ const Seo = ({ title, description, path = "/", jsonLd }) => {
 
     document.title = fullTitle;
     upsertMeta("name", "description", description);
+    upsertMeta("name", "robots", "index,follow");
     upsertLink("canonical", url);
 
     upsertMeta("property", "og:title", fullTitle);
@@ -45,9 +42,9 @@ const Seo = ({ title, description, path = "/", jsonLd }) => {
     upsertMeta("name", "twitter:card", "summary_large_image");
     upsertMeta("name", "twitter:title", fullTitle);
     upsertMeta("name", "twitter:description", description);
+    upsertMeta("name", "twitter:image", BUSINESS.logo);
 
-    const defaultLd = {
-      "@context": "https://schema.org",
+    const business = {
       "@type": "HomeAndConstructionBusiness",
       "@id": `${BUSINESS.siteUrl}/#business`,
       name: BUSINESS.name,
@@ -56,24 +53,41 @@ const Seo = ({ title, description, path = "/", jsonLd }) => {
       email: BUSINESS.email,
       telephone: BUSINESS.phoneIntl,
       priceRange: "$$",
-      description:
-        "Custom-made sheer curtains, blockout curtains and blinds in Melbourne. In-home measure, fabric selection and professional installation.",
+      description: "Custom-made sheer curtains, blockout curtains and blinds in Melbourne. In-home measure, fabric selection and professional installation.",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "18 Tobruk Drive",
-        addressLocality: "Officer South",
-        addressRegion: "VIC",
-        postalCode: "3809",
+        streetAddress: BUSINESS.streetAddress,
+        addressLocality: BUSINESS.locality,
+        addressRegion: BUSINESS.region,
+        postalCode: BUSINESS.postcode,
         addressCountry: "AU",
       },
-      hasMap: "https://www.google.com/maps/search/?api=1&query=18+Tobruk+Drive+Officer+South+VIC+3809",
-      areaServed: [
-        "Officer South",
-        "South East Melbourne",
-        "Melbourne",
-      ],
+      hasMap: BUSINESS.mapUrl,
+      areaServed: ["Officer South", "South East Melbourne", "Melbourne"],
+    };
+    const website = {
+      "@type": "WebSite",
+      "@id": `${BUSINESS.siteUrl}/#website`,
+      url: BUSINESS.siteUrl,
+      name: BUSINESS.name,
+      publisher: { "@id": `${BUSINESS.siteUrl}/#business` },
+      inLanguage: "en-AU",
+    };
+    const webpage = {
+      "@type": "WebPage",
+      "@id": `${url}/#webpage`,
+      url,
+      name: fullTitle,
+      description,
+      isPartOf: { "@id": `${BUSINESS.siteUrl}/#website` },
+      about: { "@id": `${BUSINESS.siteUrl}/#business` },
+      inLanguage: "en-AU",
     };
 
+    const structuredData = jsonLd || {
+      "@context": "https://schema.org",
+      "@graph": [business, website, webpage],
+    };
     let script = document.getElementById("ld-json");
     if (!script) {
       script = document.createElement("script");
@@ -81,7 +95,7 @@ const Seo = ({ title, description, path = "/", jsonLd }) => {
       script.type = "application/ld+json";
       document.head.appendChild(script);
     }
-    script.textContent = JSON.stringify(jsonLd || defaultLd);
+    script.textContent = JSON.stringify(structuredData);
   }, [title, description, path, jsonLd]);
 
   return null;
