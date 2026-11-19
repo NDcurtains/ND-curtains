@@ -26,7 +26,15 @@ export const CURTAIN_GALLERY = [
 { src: "/gallery/curtains/12.JPG", alt: "Good fabric curtains" },
 { src: "/gallery/curtains/13.JPG", alt: "Modern curtains" },
 { src: "/gallery/curtains/14.JPG", alt: "Traditional curtains" },
-{ src: "/gallery/curtains/15.JPG", alt: "Best curtains" },
+{ src: "/gallery/curtains/15.JPG", alt: "Motorised curtains" },
+{ src: "/gallery/curtains/16.JPG", alt: "S-fold curtains" },
+{ src: "/gallery/curtains/17.JPG", alt: "Ceiling curtains" },
+{ src: "/gallery/curtains/18.JPG", alt: "Wave curtains" },
+{ src: "/gallery/curtains/19.JPG", alt: "Bay windows" },
+{ src: "/gallery/curtains/20.JPG", alt: "Best curtains" },
+{ src: "/gallery/curtains/21.JPG", alt: "Bedroom curtains" },
+{ src: "/gallery/curtains/22.JPG", alt: "Wall curtains" },
+{ src: "/gallery/curtains/23.JPG", alt: "Pinch curtains" },
 { src: "/gallery/curtains/pink-curtains.jpeg", alt: "Pink custom curtains by ND Curtains" },
   
   // Example of a locally uploaded photo (uncomment and match your file):
@@ -44,7 +52,14 @@ export const BLIND_GALLERY = [
   { src: "/gallery/blinds/B3.JPG", alt: "Luxury Blinds" },
   { src: "/gallery/blinds/B4.JPG", alt: "Best blinds" },
   { src: "/gallery/blinds/B5.JPG", alt: "Blinds in Melbourne" },
-  { src: "/gallery/blinds/B6.JPG", alt: "Cheap blinds" },
+  { src: "/gallery/blinds/B6.JPG", alt: "Sunscreen blinds" },
+  { src: "/gallery/blinds/B7.JPG", alt: "roller blinds" },
+  { src: "/gallery/blinds/B8.JPG", alt: "blockout blinds" },
+  { src: "/gallery/blinds/B9.JPG", alt: "Cheap blinds" },
+  { src: "/gallery/blinds/B10.PNG", alt: "Motorised blinds" },
+  { src: "/gallery/blinds/B11.JPG", alt: "Double blinds" },
+  { src: "/gallery/blinds/B12.JPG", alt: "Zebra blinds" },
+  { src: "/gallery/blinds/B13.JPG", alt: "kitchen blinds" },
 
   // Example of a locally uploaded photo (uncomment and match your file):
   // { src: "/gallery/blinds/kitchen-zebra.jpg", alt: "Zebra day-and-night blind in a kitchen" },
