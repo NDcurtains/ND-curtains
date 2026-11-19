@@ -10,6 +10,7 @@ import GetAQuote from "@/pages/GetAQuote";
 import RefundPolicy from "@/pages/RefundPolicy";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
+import ServiceArea from "@/pages/ServiceArea";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/service-areas/:slug" element={<ServiceArea />} />
+          <Route path="/service-areas" element={<Navigate to="/service-areas/officer" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
