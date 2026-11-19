@@ -7,6 +7,7 @@ const footerLinks = [
   { label: "About Us", to: "/about" },
   { label: "Contact", to: "/contact" },
   { label: "Get a Quote", to: "/get-a-quote" },
+  { label: "Service Areas", to: "/service-areas/officer" },
   { label: "Refund & Cancellation Policy", to: "/refund-policy" },
   { label: "Privacy Policy", to: "/privacy" },
   { label: "Terms & Conditions", to: "/terms" },

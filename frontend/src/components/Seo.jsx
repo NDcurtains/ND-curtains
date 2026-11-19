@@ -82,6 +82,16 @@ const Seo = ({ title, description, path = "/", jsonLd }) => {
       document.head.appendChild(script);
     }
     script.textContent = JSON.stringify(jsonLd || defaultLd);
+
+    // Track every SPA route as a page_view. The initial GA4 config disables
+    // automatic page views so this does not double-count the first page.
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "page_view", {
+        page_title: fullTitle,
+        page_location: url,
+        page_path: path,
+      });
+    }
   }, [title, description, path, jsonLd]);
 
   return null;
