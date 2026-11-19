@@ -18,7 +18,7 @@ export const CURTAIN_GALLERY = [
 { src: "/gallery/curtains/4.jpg", alt: "Luxury curtains by ND Curtains" },
 { src: "/gallery/curtains/5.JPG", alt: "sheer curtains by ND Curtains" },
 { src: "/gallery/curtains/6.JPG", alt: "Luxury sheer curtains by ND Curtains" },
-{ src: "/gallery/curtains/7.JPG", alt: "Affordable Curtains" },
+{ src: "/gallery/curtains/7.jpg", alt: "Affordable Curtains" },
 { src: "/gallery/curtains/8.JPG", alt: "Sheer curtains" },
 { src: "/gallery/curtains/9.JPG", alt: "Blockout curtains" },
 { src: "/gallery/curtains/10.JPG", alt: "Cheap curtains" },
